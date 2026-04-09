@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 33% 97%;
+    --foreground: 220 25% 12%;
+
+    --card: 40 25% 95%;
+    --card-foreground: 220 25% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 12%;
+
+    --primary: 168 55% 36%;
+    --primary-foreground: 0 0% 100%;
+
+    --primary-light: 168 45% 50%;
+    --primary-glow: 168 60% 90%;
+
+    --secondary: 36 90% 55%;
+    --secondary-foreground: 220 25% 12%;
+
+    --accent: 14 80% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --muted: 40 15% 90%;
+    --muted-foreground: 220 10% 45%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 40 15% 85%;
+    --input: 40 15% 85%;
+    --ring: 168 55% 36%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 168 55% 36%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 168 55% 36%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-size: 1rem;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.7;
+  }
+
+  @media (min-width: 40em) {
+    body {
+      font-size: 1.0625rem;
+    }
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer components {
+  .blog-feed__item {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .blog-feed__item.animate-fadeInUp {
+    animation: fadeInUp 0.5s ease-out forwards;
+  }
+
+  .fluid-title {
+    font-size: clamp(2.5rem, 5vw + 1rem, 5rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  @media (min-width: 768px) {
+    .fluid-title {
+      font-size: clamp(3rem, 5vw + 1rem, 5.5rem);
+    }
+  }
+}
