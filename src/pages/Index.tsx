@@ -11,6 +11,8 @@ import {
   HandCoins,
 } from "lucide-react";
 import logoSvg from "@/assets/healthlinkafrica.svg";
+import alice from "@/assets/alice.jpeg";
+import abbey from "@/assets/cephas.jpeg";
 
 import { GlowyWavesHero } from "@/components/ui/glowy-waves-hero";
 import DotPattern from "@/components/ui/dot-pattern";
@@ -194,13 +196,13 @@ const teamTabs: TabMedia[] = [
   {
     value: "alice",
     label: "Alice",
-    src: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800&h=1200&fit=crop&auto=format",
+    src: alice,
     alt: "CEO portrait",
   },
   {
     value: "abbey",
     label: "Abbey",
-    src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=1200&fit=crop&auto=format",
+    src: abbey,
     alt: "CTO portrait",
   },
   {
