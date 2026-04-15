@@ -5,8 +5,6 @@ import {
   Droplets,
   MessageCircle,
   Users,
-  Heart,
-  Stethoscope,
   Globe,
   HandCoins,
 } from "lucide-react";
@@ -19,10 +17,20 @@ import DotPattern from "@/components/ui/dot-pattern";
 import { FeatureGrid, type Feature } from "@/components/ui/feature-grid";
 import RuixenSection, { Highlight } from "@/components/ui/ruixen-feature-section";
 import { ContainerScroll, CardSticky } from "@/components/ui/cards-stack";
-import { Features } from "@/components/ui/features-5";
 import { FeatureShowcase, type TabMedia } from "@/components/ui/feature-showcase";
 import { Features10 } from "@/components/ui/features-10";
 import { MinimalFooter } from "@/components/ui/minimal-footer";
+import {
+  type FeatureItem,
+  PricingTable,
+  PricingTableBody,
+  PricingTableHeader,
+  PricingTableHead,
+  PricingTableRow,
+  PricingTableCell,
+  PricingTablePlan,
+} from "@/components/ui/pricing-table";
+import { Button } from "@/components/ui/button";
 
 // ─── Problem Section Data ─────────────────────
 const problemFeatures: Feature[] = [
@@ -232,6 +240,58 @@ const ctaTabs: TabMedia[] = [
     label: "Partners",
     src: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=800&h=1200&fit=crop&auto=format",
     alt: "Partnership handshake",
+  },
+];
+
+// ─── Impact Section Data ──────────────────────
+const IMPACT_FEATURES: FeatureItem[] = [
+  {
+    label: "AI-assisted analysis",
+    values: [true, false, true, false],
+  },
+  {
+    label: "Early-stage detection",
+    values: ["210+ flagged", false, false, false],
+  },
+  {
+    label: "Real-time inventory",
+    values: [false, true, false, false],
+  },
+  {
+    label: "Predictive demand modelling",
+    values: [false, "72hr advance", false, false],
+  },
+  {
+    label: "Multilingual support",
+    values: [false, false, "Twi, Hausa, English", true],
+  },
+  {
+    label: "Voice-first interface",
+    values: [false, false, true, false],
+  },
+  {
+    label: "Shared patient records",
+    values: [false, false, false, true],
+  },
+  {
+    label: "Referral tracking",
+    values: [false, false, false, true],
+  },
+  {
+    label: "SMS alerts & reminders",
+    values: [false, true, false, true],
+  },
+  {
+    label: "Offline-first / 2G support",
+    values: [true, true, true, true],
+  },
+  {
+    label: "District-level analytics",
+    values: [true, true, false, true],
+  },
+  {
+    label: "USSD fallback",
+    values: [false, true, true, false],
   },
 ];
 
@@ -490,24 +550,83 @@ const Index = () => {
       </section>
 
       {/* ── Impact ───────────────────────────────── */}
-      <section id="impact" className="scroll-mt-20">
-        <Features
-          title={
-            <>
+      <section id="impact" className="scroll-mt-20 py-16 md:py-32">
+        <div className="mx-auto max-w-5xl px-4">
+          <div className="text-center mb-12">
+            <p className="text-primary text-sm font-semibold tracking-widest uppercase mb-3">
+              Impact
+            </p>
+            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-5xl text-balance">
               Real outcomes from{" "}
-              <span className="text-primary">real communities</span>
-            </>
-          }
-          description="Operational since 2024 with pilot deployments in the Ashanti Region. Here's what we're building toward."
-          listItems={[
-            { icon: Heart, label: "300+ women screened for breast cancer & fibroids" },
-            { icon: Stethoscope, label: "210+ early-stage detections flagged by AI" },
-            { icon: Droplets, label: "100+ blood requests coordinated" },
-            { icon: Users, label: "50 CHWs onboarded and active" },
-          ]}
-          imageLightSrc="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=929&fit=crop&auto=format"
-          imageAlt="Health data analytics dashboard"
-        />
+              <span className="bg-gradient-to-r from-primary via-primary/60 to-foreground/80 bg-clip-text text-transparent">
+                real communities
+              </span>
+            </h2>
+            <p className="text-muted-foreground mt-4 max-w-2xl mx-auto text-pretty">
+              Operational since 2024 with pilot deployments in the Ashanti
+              Region. Here&rsquo;s what each module delivers.
+            </p>
+          </div>
+
+          <PricingTable className="mx-auto my-5 max-w-5xl">
+            <PricingTableHeader>
+              <PricingTableRow>
+                <th />
+                <th className="p-1">
+                  <PricingTablePlan
+                    name="CancerScan"
+                    badge="Diagnostics"
+                    price="300+"
+                    icon={Activity}
+                  >
+                    <p className="text-muted-foreground text-xs">Women screened</p>
+                  </PricingTablePlan>
+                </th>
+                <th className="p-1">
+                  <PricingTablePlan
+                    name="BloodLink"
+                    badge="Blood Supply"
+                    price="100+"
+                    icon={Droplets}
+                    className="after:pointer-events-none after:absolute after:-inset-0.5 after:rounded-[inherit] after:bg-gradient-to-b after:from-primary/15 after:to-transparent after:blur-[2px]"
+                  >
+                    <p className="text-muted-foreground text-xs">Requests coordinated</p>
+                  </PricingTablePlan>
+                </th>
+                <th className="p-1">
+                  <PricingTablePlan
+                    name="AI Assistant"
+                    badge="Multilingual"
+                    price="24/7"
+                    icon={MessageCircle}
+                  >
+                    <p className="text-muted-foreground text-xs">Availability</p>
+                  </PricingTablePlan>
+                </th>
+                <th className="p-1">
+                  <PricingTablePlan
+                    name="Care Coord."
+                    badge="CHW Tools"
+                    price="50"
+                    icon={Users}
+                  >
+                    <p className="text-muted-foreground text-xs">CHWs active</p>
+                  </PricingTablePlan>
+                </th>
+              </PricingTableRow>
+            </PricingTableHeader>
+            <PricingTableBody>
+              {IMPACT_FEATURES.map((feature, index) => (
+                <PricingTableRow key={index}>
+                  <PricingTableHead>{feature.label}</PricingTableHead>
+                  {feature.values.map((value, i) => (
+                    <PricingTableCell key={i}>{value}</PricingTableCell>
+                  ))}
+                </PricingTableRow>
+              ))}
+            </PricingTableBody>
+          </PricingTable>
+        </div>
       </section>
 
       {/* ── Technology ───────────────────────────── */}
