@@ -29,7 +29,7 @@ const Contact = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <Link to="/" className="flex items-center gap-2">
-              <img src={logoSvg} alt="Health Link Africa" className="h-8 w-auto" />
+              <img src={logoSvg} alt="Health Link Africa" className="h-20 w-auto" />
             </Link>
           </div>
         </div>

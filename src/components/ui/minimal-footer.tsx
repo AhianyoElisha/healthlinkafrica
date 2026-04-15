@@ -56,7 +56,7 @@ export function MinimalFooter({
         <div className="grid max-w-4xl grid-cols-6 gap-6 p-4">
           <div className="col-span-6 flex flex-col gap-5 md:col-span-4">
             <Link to="/" className="flex items-center gap-2 w-max opacity-75">
-              <img src={logoSvg} alt={brandName} className="h-6 w-auto" />
+              <img src={logoSvg} alt={brandName} className="h-24 w-auto" />
             </Link>
             <p className="text-muted-foreground max-w-sm font-mono text-sm text-balance">
               {brandDescription}
