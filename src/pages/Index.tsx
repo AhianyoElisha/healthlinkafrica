@@ -251,7 +251,7 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <Link to="/" className="flex items-center gap-2">
-              <img src={logoSvg} alt="Health Link Africa" className="h-32 w-auto" />
+              <img src={logoSvg} alt="Health Link Africa" className="h-40 w-auto" />
             </Link>
             <nav className="hidden md:flex items-center gap-8">
               {[
@@ -448,7 +448,7 @@ const Index = () => {
                   <CardSticky
                     key={mod.id}
                     index={index + 2}
-                    className="rounded-2xl border bg-card p-8 shadow-md backdrop-blur-md"
+                    className="rounded-2xl border bg-card p-8"
                   >
                     <div className="flex items-center justify-between gap-4">
                       <div className="flex items-center gap-3">
