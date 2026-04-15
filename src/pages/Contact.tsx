@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Activity, ArrowLeft } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
+import logoSvg from "@/assets/healthlinkafrica.svg";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -28,10 +29,7 @@ const Contact = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <Link to="/" className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-                <Activity className="w-4 h-4 text-primary-foreground" />
-              </div>
-              <span className="font-display text-xl font-semibold text-foreground">Health Link Africa</span>
+              <img src={logoSvg} alt="Health Link Africa" className="h-8 w-auto" />
             </Link>
           </div>
         </div>
