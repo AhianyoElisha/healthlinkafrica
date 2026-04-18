@@ -21,14 +21,13 @@ import { FeatureShowcase, type TabMedia } from "@/components/ui/feature-showcase
 import { Features10 } from "@/components/ui/features-10";
 import { MinimalFooter } from "@/components/ui/minimal-footer";
 import {
-  type FeatureItem,
-  PricingTable,
-  PricingTableBody,
-  PricingTableHeader,
-  PricingTableHead,
-  PricingTableRow,
-  PricingTableCell,
-  PricingTablePlan,
+  type ImpactMetric,
+  ImpactTable,
+  ImpactTableBody,
+  ImpactTableHeader,
+  ImpactTableHead,
+  ImpactTableRow,
+  ImpactTableCell,
 } from "@/components/ui/pricing-table";
 import { Button } from "@/components/ui/button";
 
@@ -244,55 +243,13 @@ const ctaTabs: TabMedia[] = [
 ];
 
 // ─── Impact Section Data ──────────────────────
-const IMPACT_FEATURES: FeatureItem[] = [
-  {
-    label: "AI-assisted analysis",
-    values: [true, false, true, false],
-  },
-  {
-    label: "Early-stage detection",
-    values: ["210+ flagged", false, false, false],
-  },
-  {
-    label: "Real-time inventory",
-    values: [false, true, false, false],
-  },
-  {
-    label: "Predictive demand modelling",
-    values: [false, "72hr advance", false, false],
-  },
-  {
-    label: "Multilingual support",
-    values: [false, false, "Twi, Hausa, English", true],
-  },
-  {
-    label: "Voice-first interface",
-    values: [false, false, true, false],
-  },
-  {
-    label: "Shared patient records",
-    values: [false, false, false, true],
-  },
-  {
-    label: "Referral tracking",
-    values: [false, false, false, true],
-  },
-  {
-    label: "SMS alerts & reminders",
-    values: [false, true, false, true],
-  },
-  {
-    label: "Offline-first / 2G support",
-    values: [true, true, true, true],
-  },
-  {
-    label: "District-level analytics",
-    values: [true, true, false, true],
-  },
-  {
-    label: "USSD fallback",
-    values: [false, true, true, false],
-  },
+const IMPACT_METRICS: ImpactMetric[] = [
+  { label: "Women screened (breast cancer + fibroid)", values: ["38", "120", "300+"] },
+  { label: "Early-stage detections flagged by AI", values: ["22", "53", "210+"] },
+  { label: "Blood requests coordinated via BloodLink", values: ["—", "—", "100+"] },
+  { label: "Average blood response time reduction", values: ["—", "—", "–25 min"] },
+  { label: "CHWs onboarded and active", values: ["12", "20", "50"] },
+  { label: "Districts covered", values: ["1", "3", "5"] },
 ];
 
 const Index = () => {
@@ -568,64 +525,26 @@ const Index = () => {
             </p>
           </div>
 
-          <PricingTable className="mx-auto my-5 max-w-5xl">
-            <PricingTableHeader>
-              <PricingTableRow>
-                <th />
-                <th className="p-1">
-                  <PricingTablePlan
-                    name="CancerScan"
-                    badge="Diagnostics"
-                    price="300+"
-                    icon={Activity}
-                  >
-                    <p className="text-muted-foreground text-xs">Women screened</p>
-                  </PricingTablePlan>
-                </th>
-                <th className="p-1">
-                  <PricingTablePlan
-                    name="BloodLink"
-                    badge="Blood Supply"
-                    price="100+"
-                    icon={Droplets}
-                    className="after:pointer-events-none after:absolute after:-inset-0.5 after:rounded-[inherit] after:bg-gradient-to-b after:from-primary/15 after:to-transparent after:blur-[2px]"
-                  >
-                    <p className="text-muted-foreground text-xs">Requests coordinated</p>
-                  </PricingTablePlan>
-                </th>
-                <th className="p-1">
-                  <PricingTablePlan
-                    name="AI Assistant"
-                    badge="Multilingual"
-                    price="24/7"
-                    icon={MessageCircle}
-                  >
-                    <p className="text-muted-foreground text-xs">Availability</p>
-                  </PricingTablePlan>
-                </th>
-                <th className="p-1">
-                  <PricingTablePlan
-                    name="Care Coord."
-                    badge="CHW Tools"
-                    price="50"
-                    icon={Users}
-                  >
-                    <p className="text-muted-foreground text-xs">CHWs active</p>
-                  </PricingTablePlan>
-                </th>
-              </PricingTableRow>
-            </PricingTableHeader>
-            <PricingTableBody>
-              {IMPACT_FEATURES.map((feature, index) => (
-                <PricingTableRow key={index}>
-                  <PricingTableHead>{feature.label}</PricingTableHead>
-                  {feature.values.map((value, i) => (
-                    <PricingTableCell key={i}>{value}</PricingTableCell>
+          <ImpactTable className="mx-auto my-5 max-w-4xl">
+            <ImpactTableHeader>
+              <ImpactTableRow>
+                <ImpactTableHead>Metric</ImpactTableHead>
+                <ImpactTableHead>2024 (Pilot)</ImpactTableHead>
+                <ImpactTableHead>2025 (Growth)</ImpactTableHead>
+                <ImpactTableHead>2026 (Target)</ImpactTableHead>
+              </ImpactTableRow>
+            </ImpactTableHeader>
+            <ImpactTableBody>
+              {IMPACT_METRICS.map((metric, index) => (
+                <ImpactTableRow key={index}>
+                  <ImpactTableHead className="font-normal text-foreground">{metric.label}</ImpactTableHead>
+                  {metric.values.map((value, i) => (
+                    <ImpactTableCell key={i} highlight={i === 2}>{value}</ImpactTableCell>
                   ))}
-                </PricingTableRow>
+                </ImpactTableRow>
               ))}
-            </PricingTableBody>
-          </PricingTable>
+            </ImpactTableBody>
+          </ImpactTable>
         </div>
       </section>
 
